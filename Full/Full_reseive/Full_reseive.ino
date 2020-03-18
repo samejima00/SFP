@@ -15,28 +15,31 @@ void setup() {
   rot.write(0);
   bas.write(0);
 }
-int s = 0;
+int s;
 int count = 0;
+int n = 13;
 void loop() {
   // put your main code here, to run repeatedly:
-
   if (Serial.available() > 0) { // データの受信を確認
-    int check = int(Serial.read());
-    Serial.println(check);
-    if (check == 1) {
-    s=s+1;
+    s = int(Serial.read());
     Serial.println(s);
-    delay(20);
-    }
-    if (check == 2) {
+
+  }
+  Serial.println(s);
+ // put your main code here, to run repeatedly:
+/*
+  if(digitalRead(2)==LOW) {
+    Serial.println(s);
+    s=s+1;
+    if(s>13)
      s=0;
      count=0;
-     delay(20);
-    }
+    delay(20);
     while(digitalRead(2)==LOW) {}
   }
+  */
   if (s==1){
-    bas.write(180,30);
+    bas.write(0,30);
   }
   if (s==2) {
     digitalWrite(13, LOW);
@@ -57,9 +60,14 @@ void loop() {
     delay(100);
   }
   if (s==4){
+    count = 0;
     bas.write(90,30);
   }
   if (s==5){
-    rot.write(90,30);
+    rot.write(120,30);
+  }
+  if (s==6){
+    rot.write(0,30);
+    bas.write(0,30);
   }
 }

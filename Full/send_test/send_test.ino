@@ -1,18 +1,16 @@
 int LED = 13;
-int count = 0;
+String sendstr = "arduino";
 
 void setup(){
   Serial.begin(9600);
   pinMode(LED, OUTPUT);
+  Serial.println("Start writeing.");
 }
 
 void loop(){
-  count++;
-  Serial.write(count);
-  if((count % 2) == 1){ 
-    digitalWrite(LED, HIGH);
-  }else{
-    digitalWrite(LED, LOW);
-  }
-  delay(1000);
+  
+  Serial.write("t");
+  delay(500);
+  Serial.write("b");
+  delay(500);
 }

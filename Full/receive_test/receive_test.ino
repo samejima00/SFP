@@ -1,18 +1,15 @@
+char buff[255];
+int counter = 0;
 int LED = 13;
 
 void setup(){
   Serial.begin(9600);
   pinMode(LED, OUTPUT);
+  Serial.println("Start reading.");
 }
 
 void loop(){
   while(Serial.available()){
-    byte inChar = (byte)Serial.read();
-    if((inChar % 2) == 1){ 
-      digitalWrite(LED, HIGH);
-    }else{
-      digitalWrite(LED, LOW);
-    }
-    delay(10);
-  }
+    char inChar = char(Serial.read());
+      Serial.println(inChar);}
 }

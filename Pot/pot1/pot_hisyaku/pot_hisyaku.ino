@@ -21,8 +21,9 @@ void loop() {
   // put your main code here, to run repeatedly:
 
   if(digitalRead(2)==LOW) {
+    Serial.println(s);
     s=s+1;
-    if(s>5)
+    if(s>6)
      s=0;
      count=0;
     delay(20);
@@ -53,6 +54,9 @@ void loop() {
     bas.write(90,30);
   }
   if (s==5){
-    rot.write(90,30);
+    rot.write(120,30);
+  }
+  if (s==6){
+    rot.write(0,30);
   }
 }

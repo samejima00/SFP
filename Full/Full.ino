@@ -46,12 +46,12 @@ void loop() {
    M6=gripper degrees. Allowed values from 10 to 73 degrees. 10: the toungue is open, 73: the gripper is closed.
   */
   int s=0;
-  int n=12;
+  int n=13;
 for(;;) {
   if(digitalRead(4)==LOW) {
     s=s+1;
     delay(20);
-    //Serial.println(s);
+    Serial.write(s);
     if(s>n){
      s=0;
     delay(20);
@@ -78,30 +78,30 @@ for(;;) {
     Braccio.ServoMovement(30,           130,  15, 72, 5, 0,  73);  //配置時。茶筅が上を向く
   //delay(10000);
   }
-  else if(s==6){
+  else if(s==7){
     Braccio.ServoMovement(30,           130,  54, 150, 26 , 0,  73); //茶碗から持ち上げる
   sv.write(30);
   //delay(1000);
   }
-  else if(s==7){
+  else if(s==8){
     Braccio.ServoMovement(30,           95,  54, 150, 26 , 0,  73); //茶碗から持ち上げる
   sv.write(30);
   //delay(1000);
   }
-  else if(s==8){
+  else if(s==9){
     Braccio.ServoMovement(30,           95,  32, 90, 15, 0,  73);
     sv.write(20);
   //delay(1000);
   }
-  else if(s==9){
+  else if(s==10){
     digitalWrite(7, LOW);
     analogWrite(8, 153);
   }
-  else if(s==10){
+  else if(s==11){
     Braccio.ServoMovement(0,           90,  32, 90, 15, 0,  73);
     Braccio.ServoMovement(0,           100,  32, 90, 15, 0,  73);
   }
-  if(s==11){
+  if(s==12){
     Braccio.ServoMovement(30,           95,  54, 150, 26 , 0,  73);
   }
  
